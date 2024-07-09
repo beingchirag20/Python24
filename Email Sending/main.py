@@ -14,16 +14,22 @@ msg = MIMEMultipart()
 msg['From'] = my_email
 msg['To'] = receiver
 msg['Subject'] = "Receipt"
+msg['Date'] = formatdate(localtime=True)
 
-# Path to the PDF file
-pdf_path = r"C:\Users\being\OneDrive\Desktop\Data Science\Python\Python Programs\Receipt send in email\receipt.pdf"
+#Create a text part
+body_text = input("Enter your message (if none then just click on enter):")
+body_part = MIMEText(body_text)
+msg.attach(body_part)
 
-# Read the PDF file
-with open(pdf_path, "rb") as attachment:
+# Path to the file
+file_path = r"C:\Users\being\OneDrive\Desktop\Data Science\Python\Python Programs\Receipt send in email\receipt.pdf"
+
+# Read the PDF or any other file 
+with open(file_path, "rb") as attachment:
     part = MIMEApplication(attachment.read(), Name="receipt.pdf")
 
 # Add header to the attachment
-part['Content-Disposition'] = f'attachment; filename="{pdf_path}"'
+part['Content-Disposition'] = f'attachment; filename="{file_path}"'
 msg.attach(part)
 
 try:
@@ -34,7 +40,7 @@ try:
 
     # Send email
     server.sendmail(my_email, receiver, msg.as_string())
-    print("Email Sent!")
+    print("Email Sent Successfully!")
 
 except Exception as e:
     print(f"Error: {e}")
