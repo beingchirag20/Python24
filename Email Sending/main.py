@@ -5,8 +5,8 @@ from email.mime.application import MIMEApplication
 from email.utils import formatdate
 
 # Email credentials
-my_email = "beingchirag6@gmail.com"
-password = "iwwp bvdp uvby nxxs"  
+my_email = "#senders email"
+password = "senders 2 step verification password"  
 receiver = input("Enter recipient email: ")
 
 # Email content
