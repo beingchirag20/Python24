@@ -23,8 +23,8 @@ def add_task(task):
 # Removes task
 def remove_task(index):
     my_list = read_list()
-    if 0 <= index <= len(my_list):  
-        del my_list[index]  
+    if 0 <= index <= len(my_list):  # Check if index is within valid range
+        del my_list[index]  # Adjusted to use 0-based index
         write_list(my_list)
     else:
         print("Invalid index.")
@@ -40,9 +40,9 @@ def main():
         print("Type 'remove' to remove any task from your list")
         print("Type 'exit' to leave the list manager")
 
-        choice = input("Enter your choice:")
+        command = input("Enter your command:")
 
-        if choice == "read":
+        if command == "read":
             my_list = read_list()
             if not my_list:
                 print("Task list is empty.")
@@ -50,23 +50,23 @@ def main():
                 for index, item in enumerate(my_list):
                     print(f"{index+1}. {item}")
 
-        elif choice == "add":
+        elif command == "add":
             task = input("Enter your task:")
             add_task(task)
             print("Task added successfully!!")
 
-        elif choice == "remove":
+        elif command == "remove":
             try:
                 index = int(input("Enter the index of the task you want to remove:"))
                 remove_task(index)
             except ValueError:
                 print("Please enter a valid index.")
 
-        elif choice == "exit":
+        elif command == "exit":
             print("Thank you for using list manager!!")
             break
         else:
-            print("Please have a valid choice...")
+            print("Please have a valid command...")
 
 if __name__ == "__main__":
     main()
