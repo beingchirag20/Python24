@@ -1,3 +1,2 @@
-In this repository you will find different Python projects from beginner to advamnce.
-About Me:
-I am Chirag Rane, age=20 current BCA student. Currently learning things which will help me achieve excellence and make me the best.  
+This repository contains all real-world Python projects.  
+Python is a high-level, interpreted programming language known for its simplicity and readability. It's widely used in various fields, including web development, data analysis, artificial intelligence, scientific computing, and automation. 
